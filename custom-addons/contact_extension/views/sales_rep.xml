@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sales_reps_action" model="ir.actions.act_window">
+        <field name="name">SalesReps</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('contact_type','=','sales_rep')]</field>
+        <field name="context">{'default_contact_type': 'sales_rep',
+            'default_company_type': 'individual'}</field>
+    </record>
+
+    <menuitem id="sales_rep_menu"
+              name="Sales Reps"
+              parent="contacts.res_partner_menu_contacts"
+              sequence="3"
+              action="sales_reps_action"/>
+
+</odoo>
+

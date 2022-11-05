@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="vendor_action" model="ir.actions.act_window">
+        <field name="name">Vendor</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('contact_type','=','vendor')]</field>
+        <field name="context">{'default_contact_type': 'vendor',
+            'default_company_type': 'company'}</field>
+    </record>
+
+
+    <record id="list_vendor_action" model="ir.actions.act_window.view">
+        <field name="view_mode">tree</field>
+        <field name="sequence" eval="1"/>
+        <field name="view_id" ref="base.view_partner_tree"/>
+        <field name="act_window_id" ref="vendor_action"/>
+    </record>
+
+    <record id="form_vendor_action" model="ir.actions.act_window.view">
+        <field name="view_mode">form</field>
+        <field name="sequence" eval="2"/>
+        <field name="view_id" ref="base.view_partner_form"/>
+        <field name="act_window_id" ref="vendor_action"/>
+    </record>
+
+<!--    <record id="tree_vendor_actions" model="ir.actions.act_window.view">-->
+<!--        <field name="view_mode">form</field>-->
+<!--        <field name="sequence" eval="3"/>-->
+<!--        <field name="view_id" ref="view_tree_vendor"/>-->
+<!--        <field name="act_window_id" ref="vendor_action"/>-->
+<!--    </record>-->
+
+    <menuitem id="vendor_menu"
+              name="Vendors"
+              parent="contacts.res_partner_menu_contacts"
+              sequence="3"
+              action="vendor_action"/>
+</odoo>

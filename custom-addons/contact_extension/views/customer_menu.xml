@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="customer_action" model="ir.actions.act_window">
+        <field name="name">Customer</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('contact_type','=','customer')]</field>
+        <field name="context">{'default_contact_type': 'customer',
+            'default_company_type': 'company'}</field>
+    </record>
+
+    <menuitem id="customer_menu"
+              name="Customer"
+              parent="contacts.res_partner_menu_contacts"
+              sequence="3"
+              action="customer_action"/>
+
+</odoo>
+
