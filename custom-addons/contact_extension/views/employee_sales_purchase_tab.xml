@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_vendor_form" model="ir.ui.view">
-        <field name="name">vendor_main_menu</field>
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">employee_main_menu</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
             <xpath expr="//page[2]/group[1]/group[1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[2]/group[1]/group[2]" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
         </field>

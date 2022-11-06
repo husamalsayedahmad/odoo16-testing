@@ -7,7 +7,21 @@
         <field name="view_mode">tree,kanban,form</field>
         <field name="domain">[('contact_type','=','sales_rep')]</field>
         <field name="context">{'default_contact_type': 'sales_rep',
-            'default_company_type': 'individual'}</field>
+            'default_company_type': 'person'}</field>
+    </record>
+
+     <record id="list_sales_rep_action" model="ir.actions.act_window.view">
+        <field name="view_mode">tree</field>
+        <field name="sequence" eval="1"/>
+        <field name="view_id" ref="base.view_partner_tree"/>
+        <field name="act_window_id" ref="sales_reps_action"/>
+    </record>
+
+    <record id="form_sales_rep_action" model="ir.actions.act_window.view">
+        <field name="view_mode">form</field>
+        <field name="sequence" eval="2"/>
+        <field name="view_id" ref="contact_extension.view_sales_rep_form"/>
+        <field name="act_window_id" ref="sales_reps_action"/>
     </record>
 
     <menuitem id="sales_rep_menu"
